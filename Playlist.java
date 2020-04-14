@@ -6,8 +6,7 @@ public class Playlist {
     private LinkedList<Track> list;
 
     public Playlist() {
-        list = new LinkedList<Track>();
-        this.name = "BYEEEEEEEEEEEEEEEEEEEEE";
+        this("My Playlist");
     }
 
     public Playlist(String name) {
@@ -15,11 +14,11 @@ public class Playlist {
         this.name = name;
     }
 
-    public void setPlayListName(String name) {
+    public void setPlaylistName(String name) {
         this.name = name;
     }
-        
-    //Make pretty later
+
+    // Make pretty later
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Playlist Name: " + name + "\n\n");
@@ -33,7 +32,7 @@ public class Playlist {
         Track track = new Track(title, artist);
         list.add(track);
     }
-        
+
     public void add(String title, String artist, int year, int duration) {
         Track track = new Track(title, artist, year, duration);
         list.add(track);
@@ -54,7 +53,7 @@ public class Playlist {
     }
 
     public void showList() {
-        System.out.println(this.toString().substring(this.toString().indexOf('\n')+1));
+        System.out.println(this.toString().substring(this.toString().indexOf('\n') + 1));
     }
 
     public void play(boolean random) {
@@ -63,7 +62,7 @@ public class Playlist {
             lol = new LinkedList<Track>(list);
             Collections.shuffle(lol);
         }
-        
+
         StringBuilder sb = new StringBuilder();
         for (Track track : lol) {
             sb.append(track.toString());
