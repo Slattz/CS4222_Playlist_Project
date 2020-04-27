@@ -1,28 +1,47 @@
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class PlayList {
     private String name;
     private LinkedList<Track> list;
+    private static ArrayList<String> nameDatabase = new ArrayList<String>();
 
     public PlayList() {
         this("My Playlist");
     }
 
     public PlayList(String playListName) {
+        String copy = playListName;
+        if (nameDatabase.indexOf(copy) != -1) {
+            copy = playListName + " #" + (int)(Math.random() * 10000000); //Give playlist very unique name
+
+            while (nameDatabase.indexOf(copy) != -1) {
+                copy = playListName + " #" + (int)(Math.random() * 10000000);
+            }
+        }
         list = new LinkedList<Track>();
-        this.name = playListName;
+        nameDatabase.add(copy);
+        this.name = copy;
     }
 
     public void setName(String name) {
-        this.name = name;
+        String copy = name;
+        nameDatabase.remove(this.name);
+        if (nameDatabase.indexOf(name) != -1) {
+            copy = name + " #" + (int)(Math.random() * 10000000); //Give playlist very unique name
+            while (nameDatabase.indexOf(copy) != -1) {
+                copy = name + " #" + (int)(Math.random() * 10000000);
+            }
+        } 
+        nameDatabase.add(copy);
+        this.name = copy;
     }
 
     public String getName() {
         return this.name;
     }
 
-    // Make pretty later
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Playlist Name: " + name + "\n\n");
@@ -67,15 +86,19 @@ public class PlayList {
     }
 
     public void playAll(boolean random) {
-        LinkedList<Track> lol = list;
+        LinkedList<Track> copy = list;
         if (random) {
-            lol = new LinkedList<Track>(list);
-            Collections.shuffle(lol);
+            copy = new LinkedList<Track>(list);
+            Collections.shuffle(copy);
         }
 
         StringBuilder sb = new StringBuilder();
-        for (Track track : lol) {
-            sb.append(track.toString());
+        sb.append("Now playing:\n");
+        for (int i = 0; i < copy.size(); i++) {
+            sb.append(copy.get(i).toString());
+            if (i == 1) { //after printing first song, we now say the rest are in queue
+                sb.append("\nIn Queue:\n");
+            }
         }
         System.out.println(sb.toString());
     }
