@@ -1,21 +1,25 @@
 import java.util.LinkedList;
 import java.util.Collections;
 
-public class Playlist {
+public class PlayList {
     private String name;
     private LinkedList<Track> list;
 
-    public Playlist() {
+    public PlayList() {
         this("My Playlist");
     }
 
-    public Playlist(String name) {
+    public PlayList(String playListName) {
         list = new LinkedList<Track>();
+        this.name = playListName;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setPlaylistName(String name) {
-        this.name = name;
+    public String getName() {
+        return this.name;
     }
 
     // Make pretty later
@@ -56,7 +60,7 @@ public class Playlist {
         System.out.println(this.toString().substring(this.toString().indexOf('\n') + 1));
     }
 
-    public void play(boolean random) {
+    public void playAll(boolean random) {
         LinkedList<Track> lol = list;
         if (random) {
             lol = new LinkedList<Track>(list);
