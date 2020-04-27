@@ -75,6 +75,7 @@ public class PlayList {
         return false;
     }
 
+    //toString method is also used here, showing it works
     public void showList() {
         if (list.size() == 0) {
             System.out.println("The list is empty");

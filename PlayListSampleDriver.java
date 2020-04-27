@@ -1,4 +1,3 @@
-import java.util.Collections;
 public class PlayListSampleDriver {
     public static void main(String[] args) {
         PlayList myFavourites = new PlayList();
@@ -27,5 +26,15 @@ public class PlayListSampleDriver {
         myFavourites.playOnly(1971);
         myFavourites.remove("WHAT'D I SAY");
         myFavourites.showList();
+
+        PlayList test1 = new PlayList("Test");
+        PlayList test2 = new PlayList("Test");
+
+        //use playlists with same name as parameter to show names are unique, then change name using setName
+        System.out.println(test1.getName());
+        System.out.println(test2.getName());
+        System.out.println();
+        test2.setName("This is a new name");
+        System.out.println(test2.getName());
     }
 }
