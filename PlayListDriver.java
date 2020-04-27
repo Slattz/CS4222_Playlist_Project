@@ -1,4 +1,4 @@
-public class PlayListSampleDriver {
+public class PlayListDriver {
     public static void main(String[] args) {
         PlayList myFavourites = new PlayList();
         myFavourites.add("Like a Rolling Stone","Bob Dylan");
