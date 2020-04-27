@@ -57,7 +57,8 @@ public class Track implements Comparable<Track> {
         sb.append("----------\nTitle: " + title + '\n');
         sb.append("Artist: " + artist + '\n');
         if (year != 0) {sb.append("Year: " + year + '\n');}
-        if (duration != 0) {sb.append(String.format("%02d:%02d\n----------\n", duration/60, duration%60));}
+        if (duration != 0) {sb.append(String.format("%02d:%02d\n", duration/60, duration%60));}
+        sb.append("----------\n");
 
         return sb.toString();
     }
