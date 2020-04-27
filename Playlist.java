@@ -57,7 +57,13 @@ public class PlayList {
     }
 
     public void showList() {
-        System.out.println(this.toString().substring(this.toString().indexOf('\n') + 1));
+        if (list.size() == 0) {
+            System.out.println("The list is empty");
+        }
+        
+        else {
+            System.out.println(this.toString().substring(this.toString().indexOf('\n') + 1));
+        }
     }
 
     public void playAll(boolean random) {
