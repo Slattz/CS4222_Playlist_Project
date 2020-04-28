@@ -1,3 +1,6 @@
+//Shane Slattery - 19235046
+//Paulis Gributs - 19250568
+
 import java.lang.Comparable;
 
 public class Track implements Comparable<Track> {

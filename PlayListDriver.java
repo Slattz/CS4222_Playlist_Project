@@ -1,3 +1,6 @@
+//Shane Slattery - 19235046
+//Paulis Gributs - 19250568
+
 public class PlayListDriver {
     public static void main(String[] args) {
         PlayList myFavourites = new PlayList();

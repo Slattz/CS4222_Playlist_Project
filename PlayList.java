@@ -1,3 +1,6 @@
+//Shane Slattery - 19235046
+//Paulis Gributs - 19250568
+
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
